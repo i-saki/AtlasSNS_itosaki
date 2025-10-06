@@ -23,13 +23,19 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
-    {
-        $request->authenticate();
-
+    public function store(LoginRequest $request): RedirectResponse{
+        $request ->authenticate();
         $request->session()->regenerate();
-
-        return redirect()->intended('top');
+        return redirect()->intended('index');
     }
+
+    public function destroy(Request $request){
+        Auth::logout(); // ユーザーをログアウト
+        $request->session()->invalidate(); // セッションを無効化
+        $request->session()->regenerateToken(); // CSRFトークンを再生成
+        return redirect()->route('login');// ホームページなどにリダイレクト
+    }
+
+
 
 }

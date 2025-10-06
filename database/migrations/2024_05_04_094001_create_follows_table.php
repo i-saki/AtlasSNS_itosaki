@@ -14,7 +14,7 @@ class CreateFollowsTable extends Migration
     public function up()
     {
         Schema::create('follows', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('following_id');
             $table->unsignedBigInteger('followed_id');
             $table->timestamp('created_at')->useCurrent();
@@ -25,7 +25,7 @@ class CreateFollowsTable extends Migration
             $table->foreign('followed_id')->references('id')->on('users')->onDelete('cascade');
 
             // 組み合わせの重複を避けるためのユニーク制約
-            $table->unique(['following_id', 'followed_id']);
+            //$table->unique(['following_id', 'followed_id']);
         });
     }
 
