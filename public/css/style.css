@@ -7,6 +7,22 @@ body {}
 /* header */
 header {
     background: #186AC9;
+    position: relative;
+}
+
+.menu-container {
+    display: flex;
+    width: 300px;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    top: 20px;
+}
+
+.atlas-logo {
+    width: 110px;
+    height: 40px;
+    margin: 25px;
 }
 
 /* main content */
