@@ -28,7 +28,7 @@ header {
 /* main content */
 #row {
     display: flex;
-    flex-flow: row wrap;
+    flex-wrap: wrap;
 }
 
 #container {
