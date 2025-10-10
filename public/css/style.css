@@ -28,18 +28,15 @@ header {
 /* main content */
 #row {
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
 }
 
 #container {
     flex: 0 0 80%;
 }
 
-#side-bar {
-    flex: 0 0 19%;
-    border-left: 1px solid #727272;
-}
 
+/* アコーディオンメニュー */
 .accordion {
     width: 100%;
     max-width: 400px;
@@ -74,7 +71,10 @@ header {
     display: none;
     padding: 15px;
     background: #fff;
+
 }
+
+.accordion-items {}
 
 .accordion-content.is-open {
     display: block;
@@ -115,6 +115,8 @@ header {
     padding: 40px;
 }
 
+/* モーダル機能 */
+
 .modal {
     display: none;
     height: 100vh;
@@ -123,11 +125,22 @@ header {
     width: 100%;
 }
 
-.modal__bg {
-    background: rgba(0, 0, 0, 0.8);
-    height: 100vh;
-    position: absolute;
-    width: 100%;
+.modal-dialog {
+    max-width: 600px;
+    /* 横幅の最大値 */
+    width: 90%;
+    /* 画面に対しての割合 */
+    margin: 1.75rem auto;
+    /* 中央寄せ */
+}
+
+.modal-body {
+    max-width: 600px;
+    /* 横幅の最大値 */
+    width: 90%;
+    /* 画面に対しての割合 */
+    margin: 1.75rem auto;
+    /* 中央寄せ */
 }
 
 .modal__content {
@@ -140,13 +153,279 @@ header {
     width: 60%;
 }
 
+.btn_modal {
+    width: 40px;
+    height: 40px;
+    right: 150px;
+    top: 80px;
+}
+
+.text_modal {
+    font-size: 20px;
+}
+
 .icon-logo {
     width: 50px;
     height: 50px;
+    margin-left: 50px;
     border-radius: 50%;
     /* ←円形にする */
     object-fit: cover;
     /* ←画像を中央でトリミング */
     background-color: #fff;
     /* ←透明画像の背景補填（任意） */
+}
+
+
+.text_post {
+    font-size: 18px;
+    border: none;
+    outline: none;
+    padding-left: 20px;
+    width: 500px;
+
+}
+
+.text_post::placeholder {
+    color: #d6d6d6;
+    /* 薄めのグレー */
+}
+
+.text_box {
+    height: 150px;
+    border-bottom: 8px solid #d6d6d6;
+    /* 下にグレーの線 */
+}
+
+.text_container {
+    margin-top: 20px;
+    position: relative;
+}
+
+.btn_post {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 150px;
+    top: 80px;
+}
+
+.PostIcon-logo {
+    margin-left: 130px;
+    width: 50px;
+    height: 50px;
+    margin-left: 90px;
+    border-radius: 50%;
+    /* ←円形にする */
+    object-fit: cover;
+    /* ←画像を中央でトリミング */
+    background-color: #fff;
+    /* ←透明画像の背景補填（任意） */
+    position: absolute;
+
+}
+
+.post-container {
+    font-size: 14px;
+    margin-top: 20px;
+    margin-right: 80px;
+    margin-left: 150px;
+}
+
+.post {
+    position: relative;
+}
+
+.post-time {
+    font-size: 12px;
+    position: absolute;
+    right: 15px;
+    top: 1px;
+}
+
+.ListPost {
+    position: relative;
+    height: 200px;
+    border-bottom: 1px solid #474747;
+    padding-bottom: 10px;
+
+}
+
+.btn-UpDate {
+    position: absolute;
+    display: flex;
+    bottom: 10px;
+    /* 下から10px */
+    right: 10px;
+    /* 右から10px */
+
+}
+
+/* サイドバー */
+#side-bar {
+    flex: 0 0 20%;
+    border-left: 1px solid #727272;
+}
+
+.confirm {
+    border-bottom: 1px solid #474747;
+    font-size: 13px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.confirm-follow {
+    display: flex;
+    /* 横並びにする */
+    align-items: center;
+    /* 縦位置を中央に揃える */
+    gap: 35px;
+    /* ← この1行で間隔を調整！ */
+}
+
+#confirm-follower {
+    display: flex;
+    /* 横並びにする */
+    align-items: center;
+    /* 縦位置を中央に揃える */
+    gap: 25px;
+    /* ← この1行で間隔を調整！ */
+}
+
+.btn-follow {
+    display: inline-block;
+    background-color: #0955ce;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    /* 下線を消す */
+}
+
+.btn-search {
+    background-color: #0955ce;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px 20px;
+    border-radius: 5px;
+
+}
+
+
+
+/* プロフィールフォーム */
+.profile_form {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.profile-icon {
+    margin-right: 40px;
+}
+
+.profile_wrapper {
+    display: flex;
+    flex-flow: column;
+    align-items: baseline;
+
+}
+
+.profile_items {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto;
+
+}
+
+.profile_label {
+    font-size: 18px;
+    width: 200px;
+}
+
+.profile_input {
+    width: 300px;
+    height: 35px;
+    font-size: 14px;
+    background-color: #efefef;
+    outline: none;
+    border: #474747 solid 1px;
+}
+
+
+.profile_items2 {
+    padding: 30px 50px;
+    outline: #727272 solid 1px;
+    background-color: #efefef;
+}
+
+.profile_input_image {
+    width: 200px;
+    height: 25px;
+    margin: 0 auto;
+    align-items: center;
+    background-color: #fff;
+}
+
+.profile_btn_container {
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.btn {
+    width: 140px;
+    height: 30px;
+}
+
+.btn-profile {
+    font-size: 14px !important;
+}
+
+/* ユーザー検索ページ */
+
+.search-header {
+    top: 50px;
+    font-size: 24px;
+    border-bottom: 8px solid #d6d6d6;
+}
+
+.btn-glass {
+    width: 40px;
+    height: 40px;
+    right: 150px;
+}
+
+.user-list-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.user-list-wrapper ul {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    /* ↑ulを使うとデフォルトでmargin_bottomが入っているから、０にしてあげてる */
+
+}
+
+.search-btn {
+    margin-right: 350px;
+    margin-top: 10px;
+}
+
+
+.search-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-left: 260px;
+}
+
+.username-list {
+    font-size: 19px;
+    margin-left: 40px;
 }

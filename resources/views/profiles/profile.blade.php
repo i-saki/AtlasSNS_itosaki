@@ -9,15 +9,15 @@
     </div>
     @endif
 
-    <div class="profile_container">
-        <div >
-        @if(Auth::user()->icon_image == 'icon1.png')
-            <img class="icon-logo" src="{{ asset('images/'. Auth::user()->icon_image) }}">
-        @else
-            <img class="icon-logo" src="{{ asset('storage/images/' . Auth::user()->icon_image) }}" >
-        @endif
+    <div class="profile_form">
+        <div class="profile-icon" >
+            @if(Auth::user()->icon_image == 'icon1.png')
+                <img class="icon-logo" src="{{ asset('images/'. Auth::user()->icon_image) }}">
+            @else
+                <img class="icon-logo" src="{{ asset('storage/images/' . Auth::user()->icon_image) }}" >
+            @endif
         </div>
-            <form class="profile_wrapper" action="{{ route( 'profileForm') }}" method="post" enctype="multipart/form-data">
+        <form class="profile_wrapper" action="{{ route( 'profileForm') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="profile_items">
                 <label class="profile_label">ユーザー名</label>
@@ -41,12 +41,14 @@
             </div>
             <div class="profile_items">
                 <label class="profile_label">アイコン画像</label>
-                <input class="profile_input_image" type="file" name="upIcon">
-                <form action="/profile/update" method="POST" enctype="multipart/form-data">
+                    <div class="profile_items2">
+                        <input class="profile_input_image" type="file" name="upIcon">
+                        <form action="/profile/update" method="POST" enctype="multipart/form-data">
+                    </div>
             </div>
             <div class="profile_btn_container">
-                <button class="btn btn-danger" type="submit">更新</button>
+                <button class="btn btn-danger btn-profile" type="submit">更新</button>
             </div>
-            </form>
+        </form>
     </div>
 </x-login-layout>

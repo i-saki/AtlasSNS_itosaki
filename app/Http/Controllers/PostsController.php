@@ -3,15 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 
 class PostsController extends Controller
 {
 
   public function index(){
-    $posts = Post::all(); // または適宜 paginate() でもOK
-    return view('posts.index', compact('posts'));
+    $FollowUserID = Auth::user()->followings->pluck('id')->push(Auth::id());
+    $Follow_post = Post::whereIn('user_id',$FollowUserID)->latest()->get();
+
+    return view('posts.index', [
+        'postID' => $Follow_post,
+        ]);
   }
+
+
 
   public function store(Request $request){
     // バリデーション

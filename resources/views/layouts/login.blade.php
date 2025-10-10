@@ -44,20 +44,24 @@
       {{ $slot }}
     </div>
     <div id="side-bar">
-      <div id="confirm">
-        <p>{{ $user->username }}さんの</p>
-        <p>フォロー数</p>
-        <p>{{ $followingCount }}名</p>
-        <p class="btn"><a href="{{ route('follow.list') }}">フォローリスト</a></p>
-        <p>フォロワー数</p>
-        <p>{{ $followerCount }}名</p>
-        <p class="btn"><a href="{{ route('follower.list') }}">フォロワーリスト</a></p>
+      <div class="confirm">
+          <p>{{ $user->username }}さんの</p>
+        <div class="confirm-follow">
+          <p>フォロー数</p>
+          <p>{{ $followingCount }}名</p>
+        </div>
+          <p><a href="{{ route('follow.list') }}" class="btn-follow">フォローリスト</a></p>
+        <div id="confirm-follower">
+          <p>フォロワー数</p>
+          <p>{{ $followerCount }}名</p>
+        </div>
+          <p><a href="{{ route('follower.list') }}" class="btn-follow">フォロワーリスト</a></p>
       </div>
-      <p class="btn"><a href="/search">ユーザー検索</a></p>
+          <p><a href="/search" class="btn-search">ユーザー検索</a></p>
     </div>
   </div>
-  <footer>
-  </footer>
+
+
   <script src="{{ asset('js/app.js') }}"></script>
   <script src="{{ asset('js/script.js') }}"></script>
 </body>

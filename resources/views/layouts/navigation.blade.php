@@ -12,9 +12,9 @@
         </div>
       <div class="accordion-content">
         <ul>
-          <li><a href="/index">ホーム</a></li>
-          <li><a href="/profiles/profile">プロフィール</a></li>
-          <li><a href="{{ route('logout') }}">ログアウト</a></li>
+          <li class="accordion-items"><a href="/index">ホーム</a></li>
+          <li class="accordion-items"><a href="/profiles/profile">プロフィール</a></li>
+          <li class="accordion-items"><a href="{{ route('logout') }}">ログアウト</a></li>
         </ul>
       </div>
     </div>
