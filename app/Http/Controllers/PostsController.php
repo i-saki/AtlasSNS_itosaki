@@ -12,11 +12,14 @@ class PostsController extends Controller
   public function index(){
     $FollowUserID = Auth::user()->followings->pluck('id')->push(Auth::id());
     $Follow_post = Post::whereIn('user_id',$FollowUserID)->latest()->get();
+    $Modal_id = Post::whereIn('user_id',$FollowUserID)->first();
 
     return view('posts.index', [
         'postID' => $Follow_post,
+        'modalID' => $Modal_id,
         ]);
   }
+
 
 
 
@@ -33,12 +36,13 @@ class PostsController extends Controller
     return redirect('index');
     }
 
-  public function update(Request $request, $id){
-    $request->validate(['post' => ['required', 'min:1', 'max:150'],]);
+  public function update(Request $request){
+    $id = $request->input('id');
+    $request->validate(['upPost' => ['required', 'min:1', 'max:150'],]);
     $post = Post::findOrFail($id);
-    $post->post = $request->input('post');
+    $post->post = $request->input('upPost');
     $post->save();
-    return redirect()->route('posts.index')->with('success', '投稿を更新しました。');
+    return redirect('/index');
   }
 
   public function destroy(post $post){

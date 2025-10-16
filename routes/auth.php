@@ -19,7 +19,7 @@ Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])->name('register');//画面表示
     Route::post('register', [RegisteredUserController::class, 'store']);//登録処理
 
-    Route::get('added', [RegisteredUserController::class, 'added']);//登録完了表示
+
 
 // ログアウト先が/loginになるようにする！調べる。
 });

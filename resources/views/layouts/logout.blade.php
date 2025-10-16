@@ -22,12 +22,11 @@
         <!--iphoneのアプリアイコン指定-->
         <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     </head>
-    <body>
+    <body class="original-gradient">
         <header>
-            <h1><img src="images/atlas.png"></h1>
-            <p>Social Network Service</p>
+            <div class="AtlasPng"><img src="images/atlas.png"></div>
+            <div class="Social"><p>Social Network Service</p></div>
         </header>
-
             {{ $slot }}
         </div>
         <script src="{{ asset('js/app.js') }}"></script>

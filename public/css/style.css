@@ -4,6 +4,7 @@ html {}
 
 body {}
 
+
 /* header */
 header {
     background: #186AC9;
@@ -12,11 +13,17 @@ header {
 
 .menu-container {
     display: flex;
-    width: 300px;
+    font-size: 25px;
     align-items: center;
     position: absolute;
-    right: 0;
-    top: 20px;
+    right: 25px;
+    top: 15px;
+}
+
+.menu-container h1 {
+    font-size: 20px;
+    color: #fff;
+    width: 100px;
 }
 
 .atlas-logo {
@@ -28,7 +35,7 @@ header {
 /* main content */
 #row {
     display: flex;
-    flex-flow: row wrap;
+
 }
 
 #container {
@@ -40,23 +47,35 @@ header {
 .accordion {
     width: 100%;
     max-width: 400px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    overflow: hidden;
 }
 
-.accordion-item {
-    border-bottom: 1px solid #ddd;
-}
 
 .accordion-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    background: #f9f9f9;
+    background: #176bca;
     cursor: pointer;
     font-weight: bold;
+}
+
+.headUserName {
+    color: #fff;
+}
+
+.headUserName p {
+    margin: 0;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.arrow {
+    display: inline-block;
+    /* 回転にはこれが必要 */
+    transform: rotate(90deg);
+    /* 時計回りに90度回転 */
+    color: #fff;
 }
 
 .accordion-header .arrow {
@@ -64,28 +83,64 @@ header {
 }
 
 .accordion-header.is-active .arrow {
-    transform: rotate(180deg);
+    transform: rotate(270deg);
 }
 
 .accordion-content {
     display: none;
-    padding: 15px;
     background: #fff;
+    position: absolute;
+    right: -25px;
+    top: 75px;
+    width: 290px;
+    z-index: 9999;
+    border: 2px solid #00297e;
 
+    ul {
+        margin: 0;
+    }
+
+    li {
+        border-top: 1px solid #000;
+        align-items: center;
+        font-size: 20px;
+        padding: 30px;
+    }
+
+    a {
+        color: #727272;
+        text-decoration: none;
+        text-align: center;
+    }
 }
 
-.accordion-items {}
+.accordion-content ul :hover {
+    background-color: #00297e;
+    color: #fff;
+    text-decoration: none;
+}
+
 
 .accordion-content.is-open {
     display: block;
 }
 
+
+.headerIcon-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #fff;
+}
+
 .edit-button {
+    display: inline-block;
     background: url('/images/edit.png') no-repeat center center;
     background-size: contain;
     border: none;
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
     padding: 0;
 }
@@ -98,8 +153,8 @@ header {
     background: url('/images/trash.png') no-repeat center center;
     background-size: contain;
     border: none;
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
     padding: 0;
 }
@@ -115,65 +170,14 @@ header {
     padding: 40px;
 }
 
-/* モーダル機能 */
-
-.modal {
-    display: none;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-
-.modal-dialog {
-    max-width: 600px;
-    /* 横幅の最大値 */
-    width: 90%;
-    /* 画面に対しての割合 */
-    margin: 1.75rem auto;
-    /* 中央寄せ */
-}
-
-.modal-body {
-    max-width: 600px;
-    /* 横幅の最大値 */
-    width: 90%;
-    /* 画面に対しての割合 */
-    margin: 1.75rem auto;
-    /* 中央寄せ */
-}
-
-.modal__content {
-    background: #fff;
-    left: 50%;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 60%;
-}
-
-.btn_modal {
-    width: 40px;
-    height: 40px;
-    right: 150px;
-    top: 80px;
-}
-
-.text_modal {
-    font-size: 20px;
-}
-
 .icon-logo {
     width: 50px;
     height: 50px;
-    margin-left: 50px;
+    margin-left: 80px;
     border-radius: 50%;
     /* ←円形にする */
     object-fit: cover;
     /* ←画像を中央でトリミング */
-    background-color: #fff;
-    /* ←透明画像の背景補填（任意） */
 }
 
 
@@ -183,6 +187,7 @@ header {
     outline: none;
     padding-left: 20px;
     width: 500px;
+
 
 }
 
@@ -245,25 +250,23 @@ header {
 
 .ListPost {
     position: relative;
-    height: 200px;
+    height: 100px;
     border-bottom: 1px solid #474747;
     padding-bottom: 10px;
 
 }
 
-.btn-UpDate {
+.btnsUpDate {
     position: absolute;
     display: flex;
     bottom: 10px;
-    /* 下から10px */
     right: 10px;
-    /* 右から10px */
-
 }
 
 /* サイドバー */
 #side-bar {
     flex: 0 0 20%;
+    min-height: 800px;
     border-left: 1px solid #727272;
 }
 
@@ -292,15 +295,28 @@ header {
     /* ← この1行で間隔を調整！ */
 }
 
+.btn-follow-container {
+    margin: 10px 0 20px 100px;
+}
+
 .btn-follow {
-    display: inline-block;
     background-color: #0955ce;
     color: #fff;
     font-size: 12px;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    /* 下線を消す */
+    padding: 10px 1px;
+    border-radius: 5px;
+    width: 120px;
+    /* 固定幅(幅変更）にする */
+    text-align: center;
+    /* テキストを中央寄せ */
+    display: inline-block;
+    /* 幅を効かせるため */
+
+}
+
+.btn-search-container {
+    text-align: center;
+    margin-top: 30px;
 }
 
 .btn-search {
@@ -309,7 +325,6 @@ header {
     font-size: 12px;
     padding: 10px 20px;
     border-radius: 5px;
-
 }
 
 
@@ -355,7 +370,6 @@ header {
     border: #474747 solid 1px;
 }
 
-
 .profile_items2 {
     padding: 30px 50px;
     outline: #727272 solid 1px;
@@ -364,10 +378,20 @@ header {
 
 .profile_input_image {
     width: 200px;
-    height: 25px;
+    height: 30px;
     margin: 0 auto;
     align-items: center;
     background-color: #fff;
+}
+
+.profile_input_image::file-selector-button {
+    background-color: #fff;
+    border: none;
+    width: 200px;
+    font-size: 19px;
+    color: #727272;
+    margin-bottom: 5px;
+    cursor: pointer;
 }
 
 .profile_btn_container {
@@ -387,15 +411,24 @@ header {
 /* ユーザー検索ページ */
 
 .search-header {
-    top: 50px;
-    font-size: 24px;
+    padding: 50px;
+    display: flex;
+    font-size: 23px;
     border-bottom: 8px solid #d6d6d6;
+    align-items: center;
+}
+
+.search-btn-container {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    margin: 0;
 }
 
 .btn-glass {
     width: 40px;
     height: 40px;
-    right: 150px;
+
 }
 
 .user-list-wrapper {
@@ -422,10 +455,142 @@ header {
     width: 50px;
     height: 50px;
     border-radius: 50px;
-    margin-left: 260px;
+    margin-left: 280px;
 }
 
 .username-list {
     font-size: 19px;
     margin-left: 40px;
+}
+
+/* フォローリスト */
+
+.FollowList-header {
+    display: flex;
+    border-bottom: 8px solid #d6d6d6;
+    padding: 30px;
+}
+
+.FollowList-header h2 {
+    margin-top: 10px;
+}
+
+.FollowList-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* ←円形にする */
+    object-fit: cover;
+    /* ←画像を中央でトリミング */
+    background-color: #fff;
+    /* ←透明画像の背景補填（任意） */
+    margin-right: 5px;
+    margin-bottom: 8px;
+}
+
+.LineIcons {
+    margin-left: 30px;
+    margin-right: 300px;
+}
+
+
+/* フォロワーリスト */
+
+.FollowerList-header {
+    display: flex;
+    border-bottom: 8px solid #d6d6d6;
+    padding: 30px;
+}
+
+.FollowerList-header h2 {
+    margin-top: 10px;
+}
+
+.FollowerList-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* ←円形にする */
+    object-fit: cover;
+    /* ←画像を中央でトリミング */
+    background-color: #fff;
+    /* ←透明画像の背景補填（任意） */
+    margin-right: 5px;
+    margin-bottom: 8px;
+}
+
+.LineIcons {
+    margin-left: 30px;
+}
+
+
+/* モーダル */
+.modal_main {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(50, 50, 50, .3);
+}
+
+.modal_container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 45%;
+    background-color: #FFFFFF;
+    color: #666666;
+    position: fixed;
+    top: 30%;
+    left: 20%;
+    z-index: 5;
+    border-radius: 10px;
+}
+
+.modal_text {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 90%;
+    height: 60%;
+}
+
+.btn_modal {
+    position: absolute;
+    left: 47%;
+    top: 78%;
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+}
+
+
+/* 他ユーザーのプロフィール */
+
+.UserProfile {
+    position: relative;
+    border-bottom: 8px solid #d6d6d6;
+}
+
+.UserProfile-btn {
+    position: absolute;
+    right: 40px;
+    top: 70px;
+}
+
+.UserProfile-text {
+    margin-top: 20px;
+    font-size: 20px;
+    margin-left: 40px;
+    margin-bottom: 30px;
+}
+
+.UserProfile-container {
+    display: flex
 }

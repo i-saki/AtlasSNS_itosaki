@@ -3,8 +3,11 @@
   <div class="search-header">
     <form action="{{ route('search') }}" method="GET">
       <input type="text" name="keyword" placeholder="ユーザー名">
-      <input type="image" class="btn-glass" name="submit" src="{{ asset('images/search.png') }}" alt="検索">
+      <button class="search-btn-container" type="submit">
+        <img class="btn-glass" src="{{ asset('images/search.png') }}" alt="検索">
+      </button>
     </form>
+
     @if (request('keyword'))
       <p>検索ワード: {{ request('keyword') }}</p>
     @endif

@@ -10,29 +10,29 @@
     </div>
 @endif
     <!-- 適切なURLを入力してください -->
-{!! Form::open(['url' => 'register']) !!}
+<div class="gradientBody">
+    <div class="gray-container-register">
+        {!! Form::open(['url' => 'register']) !!}
 
-<h2>新規ユーザー登録</h2>
+        <div class="register-text">新規ユーザー登録</div>
+            <p>{{ Form::label('ユーザー名') }}</p>
+            <div class="form-text">{{ Form::text('username',null,['class' => 'input']) }}</div>
 
-{{ Form::label('ユーザー名') }}
-{{ Form::text('username',null,['class' => 'input']) }}
+            <p>{{ Form::label('メールアドレス') }}<p>
+            <div class="form-text">{{ Form::email('email',null,['class' => 'input']) }}</div>
 
-{{ Form::label('メールアドレス') }}
-{{ Form::email('email',null,['class' => 'input']) }}
+            <p>{{ Form::label('パスワード') }}<p>
+            <div class="form-text">{{ Form::password('password',null,['class' => 'input']) }}</div>
 
-{{ Form::label('パスワード') }}
-{{ Form::text('password',null,['class' => 'input']) }}
+            <p>{{ Form::label('パスワード確認') }}<p>
+            <div class="form-text">{{ Form::password('password_confirmation',null,['class' => 'input']) }}</div>
 
-{{ Form::label('パスワード確認') }}
-{{ Form::text('password_confirmation',null,['class' => 'input']) }}
+        <div class="register-btn">{{ Form::submit('新規登録') }}</div>
 
-{{ Form::submit('登録') }}
+          {!! Form::close() !!}
 
-<p><a href="login">ログイン画面へ戻る</a></p>
-
-{!! Form::close() !!}
-
-
-
+        <a href="login" class="next-login">ログイン画面へ戻る</a>
+    </div>
+</div>
 
 </x-logout-layout>

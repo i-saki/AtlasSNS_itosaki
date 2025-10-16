@@ -37,12 +37,18 @@ Route::get('/', function () {
 
 // ✅ 認証が必要なページ（未ログインなら `/login` にリダイレクト）
 Route::middleware(['auth'])->group(function () {
+
+
+//登録完了表示
+    Route::get('added', [RegisteredUserController::class, 'added']);
+
+
      //トップ画面表示
     Route::get('index', [PostsController::class, 'index'])->name('posts.index');
      //投稿処理
     Route::post('index', [PostsController::class, 'store'])->name('posts.create');
      //更新処理
-    Route::put('/posts/{id}', [PostsController::class, 'update'])->name('posts.update');
+    Route::post('/postUpdate', [PostsController::class, 'update'])->name('posts.update');
      //投稿削除処理
     Route::delete('posts/{post}', [PostsController::class, 'destroy'])->name('posts.destroy');
 
@@ -65,6 +71,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/follow/{id}', [FollowsController::class, 'follow'])->name('follows.toggle');
     //フォロー解除
     Route::post('/unfollow/{id}',[FollowsController::class,'unfollow'])->name('follows.unfollow');
+
+
 
 });
 //こうすることで、ログインしてないユーザーはリダイレクトされて、フォロー処理にアクセスできません。

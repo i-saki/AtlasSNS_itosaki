@@ -50,20 +50,27 @@
           <p>フォロー数</p>
           <p>{{ $followingCount }}名</p>
         </div>
-          <p><a href="{{ route('follow.list') }}" class="btn-follow">フォローリスト</a></p>
+        <div class=btn-follow-container>
+          <a class="btn-follow" href="{{ route('follow.list') }}" >フォローリスト</a>
+        </div>
         <div id="confirm-follower">
           <p>フォロワー数</p>
           <p>{{ $followerCount }}名</p>
         </div>
-          <p><a href="{{ route('follower.list') }}" class="btn-follow">フォロワーリスト</a></p>
+        <div class=btn-follow-container>
+          <a class="btn-follow" href="{{ route('follower.list') }}" >フォロワーリスト</a>
+        </div>
       </div>
-          <p><a href="/search" class="btn-search">ユーザー検索</a></p>
+          <div class="btn-search-container">
+            <a class="btn-search" href="/search">ユーザー検索</a>
+          </div>
     </div>
   </div>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script src="{{ asset('js/app.js') }}"></script>
   <script src="{{ asset('js/script.js') }}"></script>
+
 </body>
 
 </html>

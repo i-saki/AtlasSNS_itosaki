@@ -1,10 +1,221 @@
 @charset "UTF-8";
 
-html{
+html {
     height: 100%;
 }
 
-body{
+body {
     height: 100%;
     background: #186AC9;
+}
+
+.register_error {
+    color: #ee3b50;
+}
+
+.original-gradient {
+    height: 200px;
+    width: 100%;
+    background-image: linear-gradient(180deg, rgba(35, 133, 233, 1) 36%, rgba(213, 205, 74, 1) 84%);
+}
+
+.AtlasPng {
+    margin-top: 70px;
+    text-align: center;
+}
+
+.AtlasPng img {
+    width: 140px;
+    height: auto;
+}
+
+.Social {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    color: #fff;
+}
+
+
+/* ログインページ */
+.gradientBody {
+    display: flex;
+    /* 中央寄せにするため */
+    justify-content: center;
+    align-items: center;
+}
+
+.gray-container-login {
+    background-color: rgba(0, 0, 0, 0.2);
+    /* ← 半透明グレー */
+    margin-top: 20px;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    width: 270px;
+    height: 350px;
+    color: #fff;
+    /* 文字色を白に（背景が暗いので） */
+    display: flex;
+    flex-direction: column;
+    /* 上下に配置 */
+    align-items: center;
+    /* 中央寄せ（横） */
+}
+
+.welcome {
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+.gray-container-login p {
+    font-size: 12px;
+    text-align: left;
+    margin: 0;
+}
+
+.gray-container-login p label {
+    margin: 0;
+    font-weight: 400;
+}
+
+.form-text input {
+    height: 33px;
+    width: 210px;
+    color: #333;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+}
+
+.login-btn {
+    text-align: right;
+}
+
+.login-btn input[type="submit"] {
+    background-color: #ee3b50;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.next-register {
+    color: #fff;
+    font-size: 12px;
+    margin-top: 40px;
+    text-decoration: underline;
+}
+
+
+/* 登録ページ */
+
+.gray-container-register {
+    background-color: rgba(0, 0, 0, 0.2);
+    /* ← 半透明グレー */
+    margin-top: 20px;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 270px;
+    height: 460px;
+    color: #fff;
+    /* 文字色を白に（背景が暗いので） */
+    display: flex;
+    flex-direction: column;
+    /* 上下に配置 */
+    align-items: center;
+    /* 中央寄せ（横） */
+}
+
+.register-text {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.gray-container-register p {
+    font-size: 12px;
+    text-align: left;
+    margin: 0;
+}
+
+.gray-container-register p label {
+    margin: 0;
+    font-weight: 400;
+}
+
+.register-btn {
+    text-align: right;
+}
+
+.register-btn input[type="submit"] {
+    background-color: #ee3b50;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.next-login {
+    color: #fff;
+    font-size: 12px;
+    margin-top: 30px;
+    text-decoration: underline;
+}
+
+/* ようこそ */
+.gray-container-welcome {
+    background-color: rgba(0, 0, 0, 0.2);
+    /* ← 半透明グレー */
+    margin-top: 20px;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 270px;
+    height: 260px;
+    color: #fff;
+    /* 文字色を白に（背景が暗いので） */
+    display: flex;
+    flex-direction: column;
+    /* 上下に配置 */
+    align-items: center;
+    /* 中央寄せ（横） */
+
+}
+
+.welcome-text1 {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.welcome-text1 p {
+    margin: 1px 0;
+    /* 上下の余白を2pxにする */
+}
+
+.welcome-text2 {
+    font-size: 13px;
+    margin-top: 30px;
+    font-weight: 100;
+    text-align: left;
+}
+
+.welcome-text2 p {
+    margin: 1px 0;
+    /* 上下の余白を2pxにする */
+}
+
+.welcome-login-btn {
+    text-align: center;
+    background-color: #ee3b50;
+    text-decoration: none;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px 20px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 30px;
 }

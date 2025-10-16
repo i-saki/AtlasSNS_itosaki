@@ -17,12 +17,31 @@ document.addEventListener("DOMContentLoaded", function () {
   menuItems.forEach((item) => item.addEventListener("click", toggleAccordion));
 });
 
-$(function () { // if document is ready
-  // alert('hello world')
-});
+// $(function () {
+//   $('.accordion-content.is-open').on('click', function (e) {
+//     e.stopPropagation();
+//   })
+// });
 
 document.getElementById("id") != null
 
-$.post('/unfollow', { id: userId }, function (response) {
-  $('#follow-button').text('フォロー');
+
+
+// 投稿編集モーダル
+$(function () {
+  $('.modal_open').on('click', function () {
+    $('.modal_main').fadeIn();
+    var post = $(this).attr('post');
+    var post_id = $(this).attr('post_id');
+    $('.modal_text').text(post);
+    $('.modal_id').val(post_id);
+    return false;
+  });
+  $('.modal_main').on('click', function () {
+    $('.modal_main').fadeOut();
+    return false;
+  });
+  $('.modal_inner').on('click', function (e) {
+    e.stopPropagation();
+  })
 });

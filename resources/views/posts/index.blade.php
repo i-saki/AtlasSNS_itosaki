@@ -10,7 +10,7 @@
             @endforeach
         </ul>
     </div>
-@endif
+  @endif
     <!-- セキュリティ 忘れがち419エラー-->
       <div class=text_box>
         <div class="text_container">
@@ -26,15 +26,17 @@
     </form>
 
 @foreach ($postID as $post)
-<div class=ListPost>
-  <div class="post">
+<div class="ListPost">
+    <div class="post">
       <!-- 「1対多の関係」
       もしユーザーアイコン登録なければicon２-->
+      <a href="{{ route('profile.show', ['id' => $post->user->id]) }}">
       @if(optional($post->user)->icon_image == 'icon1.png')
         <img class="PostIcon-logo" src="{{ asset ('images/'. optional($post->user)->icon_image) }}" alt="ユーザーアイコン">
       @else
         <img class="PostIcon-logo" src="{{ asset ('storage/images/' .  optional($post->user)->icon_image) }}" alt="ユーザーアイコン">
       @endif
+      </a>
           <div class="post-container">
             <p>{{ $post->user->username }}</p>
             <p>{{ $post->post }}</p>
@@ -44,11 +46,14 @@
           </div>
     </div>
 
-  <!-- 画像の編集ボタン -->
+  <!-- 編集ボタン -->
   @if (Auth::id() == $post->user_id)
-  <div class="btn-UpDate">
-    <button class="js-modal-open edit-button" type="button" post="{{ $post->post }}" post_id="{{ $post->id }}" data-toggle="modal" data-target="#editModal">
-    </button>
+  <div class="btnsUpDate">
+    <a href="#" class="modal_open" post="{{$post->post}}" post_id="{{$post->id}}"><img class="edit-button" src="{{ asset('images/edit.png') }}"
+        onmouseover="this.src='{{ asset('images/edit_h.png') }}'"
+        onmouseout="this.src='{{ asset('images/edit.png') }}'"></a>
+        <!-- onmouseover：ホバー時に画像を変更 -->
+        <!-- onmouseout：ホバーを外した時に元に戻す-->
       <form method="POST" action="{{ route('posts.destroy', $post) }}" onsubmit="return confirm('本当に削除しますか？');">
         @csrf
         @method('DELETE')
@@ -61,20 +66,16 @@
 
 
 <!-- モーダル -->
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-  <div class="modal-dialog">
-      <div class="modal-content">
-          <div class="modal-body">
-            <form action="{{ route('posts.update', $post->id) }}" method="POST">
-                @csrf
-                @method('PUT')
-                <div class="modal-footer">
-                  <input type="text" class="text_modal" name="post" value="{{ $post->post }}"></input>
-                  <input type="image" class="btn_modal" name="submit" src="images/edit.png"></input>
-                </div>
-            </form>
-          </div>
-      </div>
+<div class="modal_main">
+  <div class="modal_inner">
+    <div class="modal_container">
+      <form action="{{url('postUpdate')}}" method="post">
+        @csrf
+        <textarea class="modal_text" name="upPost"></textarea>
+        <input type="hidden" class="modal_id" name="id">
+        <button type="submit"><img class="btn_modal" src="{{ asset('images/edit.png') }}"></button>
+      </form>
+    </div>
   </div>
 </div>
 
