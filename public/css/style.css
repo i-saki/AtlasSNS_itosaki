@@ -555,6 +555,11 @@ header {
 
 .modal_text {
     position: absolute;
+    resize: none;
+    /* サイズ変更を禁止 */
+    overflow: auto;
+    /* 中身がはみ出したらスクロール表示 */
+    font-size: 16px;
     top: 10%;
     left: 5%;
     width: 90%;
